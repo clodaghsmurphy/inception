@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  # nginx:
+  #   image: nginx
+  #   restart: unless-stopped
+  #   ports:
+  #     - 443:443
+  #   volumes:
+  #     - /var/www/html/
+
+  wordpress:
+    image: wordpress
+    ports:
+      - 8000:80
+    env_file:
+      - .env
+    volumes:
+      - ./wp-content:/var/www/html/wp-content
+    networks:
+      my_network
+    
+  db:
+    image: mariadb
+    env_file:
+      .env
+    networks:
+      my_network
+  
+      
+  
+  # mariadb:
+   
+  #   env_file: .env
+  #   volumes:
+  #   - data/mysql:/var/lib/mysql
+  #   restart: always
+
+  # wordpress:
+    
+  #   volumes:
+  #     -data/html:/var/www/html
+  #   depends_on:
+  #     - mysql
+  #   env_file:
+  #     .env
+  #   restart: always
