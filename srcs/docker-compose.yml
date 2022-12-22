@@ -20,7 +20,10 @@ services:
     depends_on:
     - wordpress
     image: nginx
-    build:  ./requirements/nginx
+    container_name: nginx
+    build:  
+        context: ./requirements/nginx
+        dockerfile: Dockerfile
     restart: unless-stopped
     ports:
       - 443:443
