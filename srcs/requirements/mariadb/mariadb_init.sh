@@ -23,6 +23,7 @@ echo "FLUSH PRIVILEGES;" | mysql -uroot
 echo "CREATE DATABASE IF NOT EXISTS $MYSQL_DATABASE;" | mysql -uroot
 echo "GRANT ALL ON $MYSQL_DATABASE.* TO '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASSWORD';" | mysql -uroot
 echo "FLUSH PRIVILEGES;" | mysql -uroot
+mysql -uroot -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE < /usr/local/bin/wordpress_db.sql
 
 
 
