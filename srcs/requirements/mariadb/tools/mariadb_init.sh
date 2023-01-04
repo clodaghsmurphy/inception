@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mysql_install_db --user=$MYSQL_USER > /dev/null
+mysql_install_db --user=mysql > /dev/null
 
 /etc/init.d/mysql start
 if [ -d "/var/lib/mysql/$MYSQL_DATABASE" ]
